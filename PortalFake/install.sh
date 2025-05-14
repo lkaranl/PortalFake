@@ -29,15 +29,15 @@ echo "Instalando dependências do sistema..."
 case $DISTRO in
     ubuntu|debian)
         apt-get update
-        apt-get install -y hostapd dnsmasq python3 python3-pip python3-venv iw net-tools
+        apt-get install -y hostapd dnsmasq python3 python3-pip python3-venv iw net-tools rfkill network-manager lsof
         ;;
     fedora)
         dnf update -y
-        dnf install -y hostapd dnsmasq python3 python3-pip iw net-tools
+        dnf install -y hostapd dnsmasq python3 python3-pip iw net-tools rfkill NetworkManager lsof
         ;;
     *)
         echo "Distribuição não suportada: $DISTRO"
-        echo "Por favor, instale manualmente: hostapd dnsmasq python3 python3-pip iw net-tools"
+        echo "Por favor, instale manualmente: hostapd dnsmasq python3 python3-pip iw net-tools rfkill NetworkManager lsof"
         ;;
 esac
 

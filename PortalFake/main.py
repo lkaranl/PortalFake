@@ -48,7 +48,8 @@ def start_flask_app():
     Inicia a aplicação Flask em thread separada.
     """
     app = create_app()
-    app.run(host='0.0.0.0', port=5000, threaded=True)
+    # Usa a porta 80, que requer privilégios de root
+    app.run(host='0.0.0.0', port=80, threaded=True)
 
 def main():
     """
@@ -100,7 +101,7 @@ def main():
     flask_thread = threading.Thread(target=start_flask_app, daemon=True)
     flask_thread.start()
     
-    print(f"\nPortal cativo em execução em http://192.168.42.1:5000")
+    print(f"\nPortal cativo em execução em http://192.168.42.1:80")
     print("Pressione CTRL+C para encerrar.")
     
     try:

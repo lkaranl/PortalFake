@@ -1,7 +1,7 @@
 import qrcode
-from typing import Optional
+from typing import Optional, Any
 
-def generate_wifi_qr(ssid: str, password: Optional[str] = None, security: str = 'WPA') -> qrcode.image.pil.PilImage:
+def generate_wifi_qr(ssid: str, password: Optional[str] = None, security: str = 'WPA') -> Any:
     """
     Gera um QR code com as credenciais de uma rede WiFi.
     
@@ -32,7 +32,7 @@ def generate_wifi_qr(ssid: str, password: Optional[str] = None, security: str = 
     img = qr.make_image(fill_color="black", back_color="white")
     return img
 
-def save_qr_image(img: qrcode.image.pil.PilImage, file_path: str = 'wifi_qr.png') -> str:
+def save_qr_image(img: Any, file_path: str = 'wifi_qr.png') -> str:
     """
     Salva a imagem do QR code em um arquivo.
     
